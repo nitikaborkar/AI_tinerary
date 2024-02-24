@@ -38,7 +38,7 @@ const CurrencyConverter = () => {
     };
 
     return (
-        <div>
+        <div className="main-content">
             <h2>Currency Converter</h2>
             <form>
                 <label>

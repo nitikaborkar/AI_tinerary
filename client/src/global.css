@@ -1,0 +1,131 @@
+/* global.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #6EB6C5;
+}
+/* global.css */
+
+/* Apply curved edges to input elements */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+button {
+    border-radius: 20px; /* Adjust the value as needed */
+    /* Add other styling properties */
+}
+/* global.css */
+
+.answer-box {
+    background-color: lightblue;
+    padding: 20px;
+    margin:1rem;
+    border-radius: 20px; /* Optional: Add curved edges */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+
+
+/* global.css */
+
+/* Set background image for the body */
+body {
+    /* Adjust the path to your image file */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+/* global.css */
+
+/* Set background color for the entire page */
+
+/* Set background color for the navbar */
+/* global.css */
+
+/* Style the navbar container */
+/* global.css */
+
+/* Style the navbar container */
+/* Navbar.css */
+
+.navbar {
+    width: 100%; /* Ensure the navbar extends full width */
+    height: 100px; /* Adjust this value to increase the thickness of the navbar */
+    background-color: #333; /* Example background color */
+    display: flex;
+    justify-content:space-around; /* Center the navbar content horizontally */
+    align-items: center; /* Center the navbar content vertically */
+    position: fixed; /* Fix the navbar to the top of the screen */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Ensure the navbar stays on top of other content */
+}
+
+.navbar-nav {
+    list-style: none; /* Remove default list styling */
+    display: flex;
+}
+
+.nav-item {
+    margin: 0 15px; /* Spacing between nav items */
+}
+
+.nav-link {
+    text-decoration: none; /* Remove default link underline */
+    color: white; /* Example link color */
+    font-size: 18px; /* Example font size */
+}
+
+/* Add hover effect for menu items */
+.navbar-nav .nav-item .nav-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+
+/* Style the buttons */
+button {
+    background-color: #4CAF50; /* green */
+    color: white; /* white text */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049; /* darker green on hover */
+}
+
+/* Add color to form inputs */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    background-color: #f2f2f2; /* light gray */
+    border: 1px solid #ccc; /* gray border */
+    padding: 8px 10px;
+    margin: 5px;
+}
+
+/* Style headings */
+h1, h2, h3 {
+    color: #333; /* dark gray */
+}
+
+/* Add color to loading indicator */
+.loading {
+    color: #4CAF50; /* green */
+}
+
+.main-content { /* Change .main-content to your main container's class or ID */
+    margin-top: 12rem; /* Adjust this value to match or exceed your navbar's height */
+}
+/* Define a class to remove bullet points and padding */
+.no-bullets {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0;       /* Remove default padding */
+    margin-left: 0;        /* Optionally, remove default margin if necessary */
+}
+

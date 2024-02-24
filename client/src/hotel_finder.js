@@ -24,14 +24,7 @@ class HotelSearch {
     }
   }
 
-  async searchHotel(
-    geoId,
-    checkIn,
-    checkOut,
-    adults,
-    rooms,
-    currencyCode
-  ) {
+  async searchHotel(geoId, checkIn, checkOut, adults, rooms, currencyCode) {
     const options = {
       method: "GET",
       url: "https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels",
@@ -117,7 +110,7 @@ const HotelSearchComponent = () => {
   };
 
   return (
-    <div>
+    <div className="main-content">
       <h2>Search Hotels</h2>
       <form
         onSubmit={(e) => {
@@ -184,15 +177,45 @@ const HotelSearchComponent = () => {
       {hotels.length > 0 && (
         <div>
           <h3>Hotels in {location}</h3>
-          <ul>
+          <ul className="no-bullets">
             {hotels.map((data, index) => (
               <li key={index}>
-                <div>Name: {data.title}</div>
-                <div>Location: {data.secondaryInfo}</div>
-                <div>Rating: {data.bubbleRating.rating}</div>
-                <div>Provider: {data.provider}</div>
-                <div>Price: {data.priceForDisplay}</div>
-                <div>Booking URL: {data.commerceInfo.externalUrl}</div>
+                <div className="answer-box">
+                <div
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "20px",
+                    textAlign: "left",
+                  }}
+                >
+                  {data.title}
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  Location: {data.secondaryInfo}
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  Rating: {data.bubbleRating.rating}
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  Provider: {data.provider}
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  Price: {data.priceForDisplay}
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  {/* Change the booking URL into a "Click here to book" button */}
+                  <a
+                    href={data.commerceInfo.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <br></br>
+                    <button style={{ cursor: "pointer" }}>
+                      Click here to book
+                    </button>
+                  </a>
+                </div>
+                </div>
               </li>
             ))}
           </ul>

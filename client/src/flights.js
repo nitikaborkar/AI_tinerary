@@ -140,7 +140,7 @@ const FlightSearchComponent = () => {
   };
 
   return (
-    <div>
+    <div className="main-content">
       <h2>Search Flights</h2>
       <form
         onSubmit={(e) => {

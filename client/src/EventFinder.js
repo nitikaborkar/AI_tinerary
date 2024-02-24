@@ -37,7 +37,7 @@ const EventSearchPage = () => {
     };
 
     return (
-        <div>
+        <div className="main-content">
             <h2>Search Events by Location</h2>
             <form onSubmit={handleSubmit}>
                 <label>

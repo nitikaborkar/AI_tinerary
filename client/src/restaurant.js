@@ -16,7 +16,7 @@ const RestaurantSearchComponent = () => {
         const response = await axios.get('https://tripadvisor16.p.rapidapi.com/api/v1/restaurant/searchLocation', {
           params: { query: locationQuery },
           headers: {
-            'X-RapidAPI-Key': '4b9307ee1bmsh438e7fcdf5b1b7ap11a42ejsn47f35e33616b',
+            'X-RapidAPI-Key': '2adddba381msh2b5fe7644dec058p1461dfjsndbe77023b9f3',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
           }
         });
@@ -43,7 +43,7 @@ const RestaurantSearchComponent = () => {
   
     // JSX for rendering
     return (
-      <div>
+      <div className="main-content">
         <h2>Search Restaurants</h2>
         <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
           <label>
