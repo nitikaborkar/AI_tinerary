@@ -10,10 +10,7 @@ function App() {
       <div className="App">
         <EventSearchPage /> {/* Use the FlightSearch component */}
         <HotelSearchComponent/>
-        <div>
-            <h1>My Currency Conversion App</h1>
             <CurrencyConverter />
-        </div>
         <FlightSearchComponent/>
 
       </div>

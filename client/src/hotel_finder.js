@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import currencies from "./codes";
 
-
 class HotelSearch {
   constructor(apiKey) {
     this.apiKey = apiKey;
@@ -31,8 +30,6 @@ class HotelSearch {
     checkOut,
     adults,
     rooms,
-    priceMin,
-    priceMax,
     currencyCode
   ) {
     const options = {
@@ -44,8 +41,6 @@ class HotelSearch {
         checkOut,
         adults,
         rooms,
-        priceMin,
-        priceMax,
         currencyCode,
       },
       headers: this.headers,
@@ -64,8 +59,6 @@ class HotelSearch {
     checkOut,
     adults,
     rooms,
-    priceMin,
-    priceMax,
     currencyCode
   ) {
     try {
@@ -79,8 +72,6 @@ class HotelSearch {
           checkOut,
           adults,
           rooms,
-          priceMin,
-          priceMax,
           currencyCode
         );
         return hotelResponse;
@@ -99,8 +90,6 @@ const HotelSearchComponent = () => {
   const [checkOut, setCheckOut] = useState("");
   const [adults, setAdults] = useState("");
   const [rooms, setRooms] = useState("");
-  const [priceMin, setPriceMin] = useState("");
-  const [priceMax, setPriceMax] = useState("");
   const [currencyCode, setCurrencyCode] = useState("");
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -117,8 +106,6 @@ const HotelSearchComponent = () => {
         checkOut,
         adults,
         rooms,
-        priceMin,
-        priceMax,
         currencyCode
       );
       setHotels(hotelsData.data.data);
@@ -176,22 +163,6 @@ const HotelSearchComponent = () => {
             type="number"
             value={rooms}
             onChange={(e) => setRooms(e.target.value)}
-          />
-        </label>
-        <label>
-          Min Price:
-          <input
-            type="number"
-            value={priceMin}
-            onChange={(e) => setPriceMin(e.target.value)}
-          />
-        </label>
-        <label>
-          Max Price:
-          <input
-            type="number"
-            value={priceMax}
-            onChange={(e) => setPriceMax(e.target.value)}
           />
         </label>
         <label>
