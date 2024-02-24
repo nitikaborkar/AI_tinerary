@@ -25,8 +25,7 @@ const HotelSearchForm = () => {
           checkOut,
           adults,
           rooms,
-          priceMin,
-          priceMax,
+          priceMin,priceMax,
           currencyCode,
         },
         headers: {
