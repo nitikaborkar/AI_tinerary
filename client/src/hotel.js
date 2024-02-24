@@ -12,13 +12,13 @@ const HotelSearchForm = () => {
   const [currencyCode, setCurrencyCode] = useState('');
   const [hotels, setHotels] = useState([]);
 
-  const apiKey = 'YOUR_API_KEY';
+  const apiKey = '4b9307ee1bmsh438e7fcdf5b1b7ap11a42ejsn47f35e33616b';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.get('YOUR_BACKEND_ENDPOINT', {
+      const response = await axios.get('http://localhost:3000/api/hotels', {
         params: {
           location,
           checkIn,

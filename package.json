@@ -10,5 +10,10 @@
   },
   "devDependencies": {
     "react-scripts": "^5.0.1"
-  }
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
