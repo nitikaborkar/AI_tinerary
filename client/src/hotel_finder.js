@@ -98,7 +98,7 @@ const HotelSearchComponent = () => {
     setLoading(true);
     try {
       const hotelSearch = new HotelSearch(
-        "9dad35ef59mshb8ee0cd46f48a74p1eea52jsnee86a8bb3772"
+        "2adddba381msh2b5fe7644dec058p1461dfjsndbe77023b9f3"
       );
       const hotelsData = await hotelSearch.searchAndDisplayHotelsInfo(
         location,
