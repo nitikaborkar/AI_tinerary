@@ -1,14 +1,21 @@
 // App.js
 import React from 'react';
-import EventsByLocation from './EventFinder'; // Import the FlightSearch component
-import HotelSearchForm from './hotel';
-
+import EventSearchPage from './EventFinder'; // Import the FlightSearch component
+import HotelSearchComponent from './hotel_finder';
+import CurrencyConverter from './currency';
+import FlightSearchComponent from './flights'
 
 function App() {
   return (
       <div className="App">
-        <EventsByLocation /> {/* Use the FlightSearch component */}
-        <HotelSearchForm/>
+        <EventSearchPage /> {/* Use the FlightSearch component */}
+        <HotelSearchComponent/>
+        <div>
+            <h1>My Currency Conversion App</h1>
+            <CurrencyConverter />
+        </div>
+        <FlightSearchComponent/>
+
       </div>
   );
 }
