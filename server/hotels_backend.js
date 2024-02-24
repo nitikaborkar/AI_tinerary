@@ -1,10 +1,11 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 
 const app = express();
-const port = 3000;
+app.use(cors());
+app.use(express.json());
 
-// Backend logic for hotel search
 class HotelSearch {
     constructor(apiKey) {
         this.apiKey = apiKey;
@@ -45,9 +46,9 @@ class HotelSearch {
         };
         try {
             const response = await axios.request(options);
-            return response.data;
+            return response.data; 
         } catch (error) {
-            throw error;
+            throw error; 
         }
     }
 
@@ -57,7 +58,7 @@ class HotelSearch {
             if (response.status && response.data.length > 0) {
                 const geoId = response.data[0].geoId;
                 const hotelResponse = await this.searchHotel(geoId, checkIn, checkOut, adults, rooms, priceMin, priceMax, currencyCode);
-                return hotelResponse.data;
+                return hotelResponse;
             } else {
                 throw new Error('No destination found or invalid response data');
             }
@@ -67,11 +68,11 @@ class HotelSearch {
     }
 }
 
-// Example usage:
-const apiKey = '4b9307ee1bmsh438e7fcdf5b1b7ap11a42ejsn47f35e33616b'; // Replace with your actual API key
+const apiKey = '680597d649msh6ce713b39494317p102b14jsnd80d4502cb84'; // Replace with your actual API key
 const hotelSearch = new HotelSearch(apiKey);
 
-app.get('/api/hotels', async (req, res) => {
+app.get('/search-hotels', async (req, res) => {
+    console.log("i am in search-hotels backend");
     const { location, checkIn, checkOut, adults, rooms, priceMin, priceMax, currencyCode } = req.query;
     try {
         const hotelsData = await hotelSearch.searchAndDisplayHotelsInfo(location, checkIn, checkOut, adults, rooms, priceMin, priceMax, currencyCode);
@@ -81,6 +82,7 @@ app.get('/api/hotels', async (req, res) => {
     }
 });
 
+const port = 3000; // Set your desired port number
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
