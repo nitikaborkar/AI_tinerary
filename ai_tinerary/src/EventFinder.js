@@ -4,7 +4,7 @@ import axios from 'axios';
 const EventsByLocation = () => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
-    const locationName = 'Sydney'; // Replace with your desired location name
+    const locationName = 'New York'; // Replace with your desired location name
 
     useEffect(() => {
         const fetchEvents = async () => {
