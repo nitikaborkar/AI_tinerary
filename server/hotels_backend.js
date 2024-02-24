@@ -1,5 +1,10 @@
+const express = require('express');
 const axios = require('axios');
 
+const app = express();
+const port = 3000;
+
+// Backend logic for hotel search
 class HotelSearch {
     constructor(apiKey) {
         this.apiKey = apiKey;
@@ -40,50 +45,42 @@ class HotelSearch {
         };
         try {
             const response = await axios.request(options);
-            return response.data; // Return the data directly
+            return response.data;
         } catch (error) {
-            throw error; // Rethrow the error for the caller to handle
+            throw error;
         }
     }
 
     async searchAndDisplayHotelsInfo(location, checkIn, checkOut, adults, rooms, priceMin, priceMax, currencyCode) {
         try {
             const response = await this.searchDestination(location);
-    
             if (response.status && response.data.length > 0) {
                 const geoId = response.data[0].geoId;
-                console.log('--------------------------------------------------------');
                 const hotelResponse = await this.searchHotel(geoId, checkIn, checkOut, adults, rooms, priceMin, priceMax, currencyCode);
-                if (hotelResponse) {
-                    hotelResponse.data.data.forEach((data, index) => {
-                        console.log(`Hotel ${index + 1}:`);
-                        console.log(`Name: ${data.title}`);
-                        console.log(`Location: ${data.secondaryInfo}`);
-                        console.log(`Rating: ${data.bubbleRating.rating}`);
-                        console.log(`Provider: ${data.provider}`);
-                        console.log(`Price: ${data.priceForDisplay}`);
-                        console.log(`Booking URL: ${data.commerceInfo.externalUrl}`);
-                        console.log('---------------------');
-                    });
-                } else {
-                    console.error('No hotels found or invalid response data');
-                }
+                return hotelResponse.data;
             } else {
-                console.error('No destination found or invalid response data');
+                throw new Error('No destination found or invalid response data');
             }
         } catch (error) {
-            console.error(error);
+            throw error;
         }
     }
 }
+
 // Example usage:
 const apiKey = '4b9307ee1bmsh438e7fcdf5b1b7ap11a42ejsn47f35e33616b'; // Replace with your actual API key
 const hotelSearch = new HotelSearch(apiKey);
 
-(async () => {
+app.get('/api/hotels', async (req, res) => {
+    const { location, checkIn, checkOut, adults, rooms, priceMin, priceMax, currencyCode } = req.query;
     try {
-        await hotelSearch.searchAndDisplayHotelsInfo('Mumbai',  '2024-02-26', '2024-02-28', '1', '1', '1000', '50000','INR');
+        const hotelsData = await hotelSearch.searchAndDisplayHotelsInfo(location, checkIn, checkOut, adults, rooms, priceMin, priceMax, currencyCode);
+        res.json(hotelsData);
     } catch (error) {
-        console.error(error);
+        res.status(500).json({ error: error.message });
     }
-})();
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
