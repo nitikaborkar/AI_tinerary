@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './itinerary.css'; // Import CSS file for styling
+import './itinerary.css'; // Correct path to your CSS file
 
-const Itinerary = () => {
-    const [apiKey] = useState('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');
+const Itinerary= () => {
+    const [apiKey] = useState('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');
     const [urlString] = useState('https://api.openai.com/v1/engines/gpt-3.5-turbo-instruct/completions');
     const [conversation, setConversation] = useState([]);
     const [prompt, setPrompt] = useState('');
@@ -18,7 +18,7 @@ const Itinerary = () => {
             }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`,
+                    'Authorization': `Bearer ${apiKey}` // Correctly formatted Authorization header
                 }
             });
 
@@ -39,7 +39,7 @@ const Itinerary = () => {
 
     return (
         <div className="chatbot-container">
-            <h1>Travel Itinerary Chatbot</h1>
+            <h1>Travel ItineraryChatbot</h1>
 
             {/* Chat conversation */}
             <div className="conversation-container">
