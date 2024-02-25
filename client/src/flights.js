@@ -119,7 +119,7 @@ const FlightSearchComponent = () => {
     setLoading(true);
     try {
       const flightSearch = new FlightSearch(
-        "2adddba381msh2b5fe7644dec058p1461dfjsndbe77023b9f3"
+        "bf0339b17fmsh4a17a88b1f35b45p18161cjsn35c3b3c9ad73"
       );
       const flightsData = await flightSearch.searchAndDisplayFlightsInfo(
         fromLocation,
@@ -160,7 +160,7 @@ const FlightSearchComponent = () => {
           To:
           <input
             type="text"
-            value={toLocation}
+value={toLocation}
             onChange={(e) => setToLocation(e.target.value)}
           />
         </label>

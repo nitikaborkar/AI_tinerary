@@ -1,17 +1,18 @@
 /* itinerary.css */
 
 .chatbot-container {
-    max-width: 600px;
+    max-width: 800px; /* Increase the max-width */
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 20px; /* Increase the border-radius for a more rounded appearance */
     background-color: #f9f9f9;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Increase the box-shadow for a more prominent effect */
+    font-size: 18px; /* Increase the font size */
 }
 
 .conversation-container {
-    max-height: 300px;
+    max-height: 400px; /* Increase the max-height */
     overflow-y: auto;
 }
 
@@ -19,12 +20,17 @@
     margin-bottom: 10px;
 }
 
-.user-message {
-    color: #333;
+.user-message, .bot-message {
+    color: black; /* Change the message color to black */
+    background-color: #d3d3d3; /* Add background color for the message */
+    padding: 10px; /* Add padding for a message box appearance */
+    border-radius: 10px; /* Add border-radius for a rounded box appearance */
+    display: inline-block; /* Ensure the message box only takes up necessary space */
 }
 
-.bot-message {
-    color: #007bff;
+.user-message {
+    background-color: #007bff; /* Change user message background color */
+    color: #fff; /* Change user message text color */
 }
 
 .input-container {

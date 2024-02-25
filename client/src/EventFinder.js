@@ -50,12 +50,17 @@ const EventSearchPage = () => {
             {events.length > 0 && (
                 <div>
                     <h3>Events in {location}</h3>
-                    <ul>
-                        {events.map((event) => (
-                            <li key={event.id}>
+                    <ul className="no-bullets">
+                        {events.map((event,index) => (
+                            <li key={event.id} style={{ marginBottom: '10px' }}> 
+                            {/* Add spacing between list items */}
+                            <div className="answer-box">
+                            <span style={{ fontWeight: 'bold', marginRight: '5px' }}>{index + 1}.</span>
+                  
                                 <a href={event.url} target="_blank" rel="noopener noreferrer">
                                     {event.name}
                                 </a> - {event.dates.start.localDate}
+                                </div>
                             </li>
                         ))}
                     </ul>

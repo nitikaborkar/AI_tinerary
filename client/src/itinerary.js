@@ -4,7 +4,8 @@ import "./itinerary.css"; // Correct path to your CSS file
 
 const Itinerary = () => {
   const [apiKey] = useState(
-    "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"
+    "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"
+
   );
   const [urlString] = useState(
     "https://api.openai.com/v1/engines/gpt-3.5-turbo-instruct/completions"
@@ -13,6 +14,24 @@ const Itinerary = () => {
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState("");
 
+  const formatItineraryText = (text) => {
+    // Split the text by "day X:" but exclude the match from the parts array
+    const parts = text.split(/day \d+:/i);
+    // Find all the "day X:" matches
+    const days = text.match(/day \d+:/gi);
+  
+    return parts.map((part, index) => (
+      <React.Fragment key={index}>
+        {index !== 0 && <><br /><br /></>} {/* Adds a line break before day headings except for the first day */}
+        {days && index - 1 >= 0 && days.length > index - 1 && (
+          <strong>{days[index - 1]}</strong>
+        )}
+        {part}
+      </React.Fragment>
+    ));
+  };
+  
+
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
@@ -20,7 +39,7 @@ const Itinerary = () => {
         {
           prompt:
             prompt +
-            "give it in the format day 1: , day 2:... and include hotel and restaurant recommendations with it as well",
+            "give a detailed itenary based on the interests in the format day 1: , day 2:.... mention the desination, best time to visit, and the best hotel for the user at the start of the answer before the itenary",
           max_tokens: 1000,
           temperature: 0.7,
         },
@@ -50,8 +69,15 @@ const Itinerary = () => {
       setError(error.message);
     }
   };
+  const handleKeyPress = (event) => {
+    // Check if the Enter key is pressed
+    if (event.key === "Enter") {
+      handleSubmit(); // Call handleSubmit function when Enter key is pressed
+    }
+  };
 
   return (
+    
     <div className="main-content">
       <div className="chatbot-container">
         <h1>Travel ItineraryChatbot</h1>
@@ -63,8 +89,9 @@ const Itinerary = () => {
               <p className="user-message">
                 <strong>User:</strong> {item.prompt}
               </p>
+              <bt />
               <p className="bot-message">
-                <strong>Bot:</strong> {item.response}
+                <strong>Bot:</strong> {formatItineraryText(item.response)}
               </p>
             </div>
           ))}
@@ -77,7 +104,9 @@ const Itinerary = () => {
             placeholder="Enter your question or request"
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
+            onKeyPress={handleKeyPress} // Call handleKeyPress function on key press
             className="input-field"
+
           />
           <button onClick={handleSubmit} className="submit-button">
             Submit
