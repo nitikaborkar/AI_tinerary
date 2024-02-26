@@ -63,7 +63,7 @@ const RestaurantSearchComponent = () => {
 
     try {
       const restaurantSearch = new RestaurantSearch(
-        "f8434865ebmsh2b3cba454808e31p10e1aajsn566a5a5428e1"
+        "Your_Key"
       );
       const restaurantsData = await restaurantSearch.searchAndDisplayRestaurantsInfo(
         locationQuery
