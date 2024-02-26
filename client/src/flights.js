@@ -119,7 +119,7 @@ const FlightSearchComponent = () => {
     setLoading(true);
     try {
       const flightSearch = new FlightSearch(
-        "bf0339b17fmsh4a17a88b1f35b45p18161cjsn35c3b3c9ad73"
+        "Your_Key"
       );
       const flightsData = await flightSearch.searchAndDisplayFlightsInfo(
         fromLocation,
