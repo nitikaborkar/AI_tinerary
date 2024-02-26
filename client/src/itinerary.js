@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./itinerary.css"; // Correct path to your CSS file
+import "./itinerary.css"; 
 
 const Itinerary = () => {
   const [apiKey] = useState(
-    "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"
+    "Your_Key"
 
   );
   const [urlString] = useState(
