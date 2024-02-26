@@ -6,7 +6,7 @@ const EventSearchPage = () => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const apiKey = 'I3YcEyGHrshfwzIQUTi5Bve5Wjeq0FY1';
+    const apiKey = 'Your_Key';
 
     const fetchEvents = async () => {
         setLoading(true);
