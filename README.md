@@ -76,10 +76,3 @@ npm start
 
 AI-tinerary demonstrates production-ready implementation of LLM technology in consumer applications, showcasing expertise in full-stack development, API integration, and AI/ML deployment. The platform addresses a \$1.8 trillion travel market opportunity through intelligent automation and personalization.
 
-***
-<span style="display:none">[^1]</span>
-
-<div align="center">⁂</div>
-
-[^1]: https://github.com/nitikaborkar/AI_tinerary
-
